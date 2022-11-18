@@ -1,0 +1,26 @@
+﻿@model Prac_Contact_Directory.Models.DistributionList
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DistributionList</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DistributionListName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DistributionListName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DistributionListId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

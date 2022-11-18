@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Prac_Contact_Directory.Models.ContactGroup>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Contact Group</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Html.BeginForm("Index", "ContactGroups", FormMethod.Get))
+{
+  @Html.TextBox("Searching")
+    <input type="submit" value="Search" />
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactGroupName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Role)
+        </th>
+        <th></th>
+    <tbody>
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="3" style="color:red">
+                    Name doesn't match with the records
+                </td>
+            </tr>
+        }
+        
+        else
+        {
+
+        foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ContactGroupName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Role)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ContactGroupID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ContactGroupID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ContactGroupID })
+                    </td>
+                </tr>
+            }
+        }
+
+    </table>
