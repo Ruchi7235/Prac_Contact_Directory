@@ -10,59 +10,84 @@
 </p>
 
 @using (Html.BeginForm("Index", "Contacts", FormMethod.Get))
-  {
-    @Html.TextBox("Searching")<input type="submit" value="Search"/>
+{
+    @Html.TextBox("Searching")
+    <input type="submit" value="Search" />
+}
+<div class="row">
+    <div class="col-md-4">
+        <h2>Please choose a employee detail to craete a MultiSelect list </h2>
+        @Html.DropDownList("EmployeeId", ViewBag.ContactsSelectList as MultiSelectList, "Select Contact", new { @class = "form-control chosen-contact", multiple = "multiple" })
+    </div>
+</div>
+@section Styles{
+
+    @Styles.Render("~/Content/chosen");
+
+}
+
+@section Scripts{
+    @Scripts.Render("~/bundels/chosen");
+    <script type="text/javascript">
+
+        $(function () {
+            $(".chosen-contact").chosen();
+        });
+    </script>
     }
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.EmployeeName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </th>
-        <th></th>
-    <tbody>
-     @if (Model.Count() == 0)
-     {
-    <tr>
-        <td colspan="3" style="color:red">
-            Name doesn't match with the records
-        </td>
-    </tr>
-     }
 
-     else
-     {
-         foreach (var item in Model)
-         {
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmployeeName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.EmployeeId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeId })
-            </td>
-        </tr>
-         }
-     }
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th></th>
+        <tbody>
+            @if (Model.Count() == 0)
+            {
+                <tr>
+                    <td colspan="3" style="color:red">
+                        Name doesn't match with the records
+                    </td>
+                </tr>
+            }
 
-</table>
+            else
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EmployeeName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.EmployeeId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeId })
+                        </td>
+                    </tr>
+                }
+            }
+
+    </table>
+
+

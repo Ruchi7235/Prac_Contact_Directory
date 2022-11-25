@@ -20,6 +20,19 @@ namespace Prac_Contact_Directory.Models
             }
             set { _ContactSelectList = value; }
             }
+        private MultiSelectList _ContactMultiSelectList { get;set;}
+
+        public MultiSelectList ContactMultiSelectList
+        {
+            get
+            {
+                if (_ContactMultiSelectList != null)
+                    return _ContactMultiSelectList;
+                return new MultiSelectList(GetContacts(), "Id", "Name");
+            }
+            set { _ContactMultiSelectList = value; }
+
+        }
         private List<Contact> GetContacts()
         {
             var contacts = new List<Contact>();

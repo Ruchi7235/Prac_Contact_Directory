@@ -12,20 +12,19 @@ namespace Prac_Contact_Directory.Models
         [Key]
         public int EmployeeId { get; set; }
 
-        [Required,Display (Name = "Employee Name"),StringLength(30) ]
+        [Required, Display(Name = "Employee Name"), StringLength(30)]
         public string EmployeeName { get; set; }
         public string Address { get; set; }
-        [EmailAddress,Required,StringLength(80)]
+        [EmailAddress, Required, StringLength(80)]
         public string Email { get; set; }
 
-        [Required,Display(Name ="Phone Number")]
+        [Required, Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
 
         public virtual ICollection<ContactGroup> ContactGroups { get; set; }
         public virtual ICollection<DistributionList> DistributionLists { get; set; }
 
         // SelectList for dropdown of multiple list
-        
-
+       
     }
 }

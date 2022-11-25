@@ -17,6 +17,7 @@ namespace Prac_Contact_Directory.Controllers
         // GET: ContactGroups
         public ActionResult Index(string Searching)
         {
+
             return View(db.ContactGroup.Where(x => x.ContactGroupName.Contains(Searching) || Searching == null).ToList());
         }
 
