@@ -25,6 +25,6 @@ namespace Prac_Contact_Directory.Models
         public virtual ICollection<DistributionList> DistributionLists { get; set; }
 
         // SelectList for dropdown of multiple list
-       
+     
     }
 }

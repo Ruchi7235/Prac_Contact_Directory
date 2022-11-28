@@ -19,6 +19,7 @@ namespace Prac_Contact_Directory.Controllers
         {
             return View(db.DistributionList.Where (x=>x.DistributionListName.Contains (Searching) || Searching == null) .ToList());
         }
+       
 
         // GET: DistributionLists/Details/5
         public ActionResult Details(int? id)

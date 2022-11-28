@@ -14,5 +14,7 @@ namespace Prac_Contact_Directory.Models
         public string DistributionListName { get; set; }
         public virtual ICollection<Contact> Contacts { get; set; }
         public virtual ICollection<Group> Groups { get; set; }
+
+     
     }
 }

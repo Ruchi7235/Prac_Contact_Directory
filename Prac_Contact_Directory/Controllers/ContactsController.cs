@@ -17,17 +17,10 @@ namespace Prac_Contact_Directory.Controllers
         // GET: Contacts
         public ActionResult Index(string Searching)
         {
-            ViewBag.ContactsSelectList = new SelectList(GetContacts(), "EmployeeId");
+            
             return View(db.Contact.Where(x =>x.EmployeeName.Contains(Searching) || Searching == null). ToList());
         }
-        private List<Contact> GetContacts()
-        {
-            var contacts = new List<Contact>();
-            
-
-
-            return contacts;
-        }
+       
 
         // GET: Contacts/Details/5
         public ActionResult Details(int? id)

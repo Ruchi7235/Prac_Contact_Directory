@@ -14,27 +14,33 @@
     @Html.TextBox("Searching")
     <input type="submit" value="Search" />
 }
-<div class="row">
-    <div class="col-md-4">
-        <h2>Please choose a employee detail to craete a MultiSelect list </h2>
-        @Html.DropDownList("EmployeeId", ViewBag.ContactsSelectList as MultiSelectList, "Select Contact", new { @class = "form-control chosen-contact", multiple = "multiple" })
+<div>
+    <script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js"></script>
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Please choose a employee detail to create a MultiSelect list </h2>
+            @Html.DropDownList("EmployeeId", ViewBag.ContactsSelectList as MultiSelectList, "Select Contact", new { @class = "form-control chosen-contact", multiple = "multiple" })
+        </div>
     </div>
-</div>
-@section Styles{
+    @section Styles{
 
-    @Styles.Render("~/Content/chosen");
+        @Styles.Render("~/Content/chosen");
 
-}
-
-@section Scripts{
-    @Scripts.Render("~/bundels/chosen");
-    <script type="text/javascript">
-
-        $(function () {
-            $(".chosen-contact").chosen();
-        });
-    </script>
     }
+
+    @section Scripts{
+        @Scripts.Render("~/bundels/chosen");
+        }
+        <script type="text/javascript">
+
+            $(function () {
+                $(".chosen-contact").chosen();
+            });
+            
+        </script>
+
+    </div>
+
 
 
     <table class="table">
@@ -87,7 +93,7 @@
                     </tr>
                 }
             }
-
+            
     </table>
 
 
