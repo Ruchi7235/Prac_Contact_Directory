@@ -147,7 +147,6 @@
     <Compile Include="Controllers\ContactGroupsController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\DistributionListsController.cs" />
-    <Compile Include="Controllers\DropDownController.cs" />
     <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -344,8 +343,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Distribution\" />
-    <Folder Include="Views\DropDown\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

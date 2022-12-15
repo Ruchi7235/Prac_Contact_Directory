@@ -24,6 +24,8 @@ namespace Prac_Contact_Directory.Models
         public virtual ICollection<ContactGroup> ContactGroups { get; set; }
         public virtual ICollection<DistributionList> DistributionLists { get; set; }
 
+        public List<int> SelectEmployeeID { get; set; }
+
         // SelectList for dropdown of multiple list
      
     }
